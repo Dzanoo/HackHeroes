@@ -27,6 +27,16 @@ const so2Element = document.getElementById('so2');
 const pm2_5Element = document.getElementById('pm2_5');
 const pm10Element = document.getElementById('pm10');
 const nh3Element = document.getElementById('nh3');
+const aqiElement= document.getElementById('aqi');
+
+const co=document.getElementById('cometer');
+const no=document.getElementById('nometer');
+const no2=document.getElementById('no2meter');
+const o3=document.getElementById('o3meter');
+const so2 = document.getElementById('so2meter');
+const pm2_5=document.getElementById('pm2_5meter');
+const pm10=document.getElementById('pm10meter');
+const nh3=document.getElementById('nh3meter');
 
 searchButton.addEventListener('click', () => {
     const location = locationInput.value;
@@ -91,15 +101,23 @@ function fetchAirPollution(location) {
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            coElement.innerHTML=`CO: ${data.list[0].components.co}μg/m<sup>3</sup>`;
-            noElement.innerHTML=`NO: ${data.list[0].components.no}μg/m<sup>3</sup>`;
-            no2Element.innerHTML=`NO<sub>2</sub>: ${data.list[0].components.no2}μg/m<sup>3</sup>`;
-            o3Element.innerHTML=`O<sub>3</sub>: ${data.list[0].components.o3}μg/m<sup>3</sup>`;
-            so2Element.innerHTML=`SO<sub>2</sub>: ${data.list[0].components.so2}μg/m<sup>3</sup>`;
-            pm2_5Element.innerHTML=`PM<sub>2.5</sub>: ${data.list[0].components.pm2_5}μg/m<sup>3</sup>`;
-            pm10Element.innerHTML=`PM<sub>10</sub>: ${data.list[0].components.pm10}μg/m<sup>3</sup>`;
-            nh3Element.innerHTML=`NH<sub>3</sub>: ${data.list[0].components.nh3}μg/m<sup>3</sup>`;
-
+            colabel.innerHTML=`CO: ${data.list[0].components.co}μg/m<sup>3</sup>`;
+            nolabel.innerHTML=`NO: ${data.list[0].components.no}μg/m<sup>3</sup>`;
+            no2label.innerHTML=`NO<sub>2</sub>: ${data.list[0].components.no2}μg/m<sup>3</sup>`;
+            o3label.innerHTML=`O<sub>3</sub>: ${data.list[0].components.o3}μg/m<sup>3</sup>`;
+            so2label.innerHTML=`SO<sub>2</sub>: ${data.list[0].components.so2}μg/m<sup>3</sup>`;
+            pm2_5label.innerHTML=`PM<sub>2.5</sub>: ${data.list[0].components.pm2_5}μg/m<sup>3</sup>`;
+            pm10label.innerHTML=`PM<sub>10</sub>: ${data.list[0].components.pm10}μg/m<sup>3</sup>`;
+            nh3label.innerHTML=`NH<sub>3</sub>: ${data.list[0].components.nh3}μg/m<sup>3</sup>`;
+            co.value=data.list[0].components.co;
+            no.value=data.list[0].components.no;
+            no2.value=data.list[0].components.no2;
+            o3.value=data.list[0].components.o3;
+            pm2_5.value=data.list[0].components.pm2_5;
+            pm10.value=data.list[0].components.pm10;
+            nh3.value=data.list[0].components.nh3;
+            console.log(data);
+            aqiElement.innerHTML=`Air quailty today is ${data.list[0].main.aqi}.`;
         })
         .catch(error => {
             console.error('Error fetching pollution data:', error);

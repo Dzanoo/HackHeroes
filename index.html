@@ -44,14 +44,41 @@
                 </div>
             </div>
             <div class="air_pollution">
-                <div id="co"></div>
-                <div id="no"></div>
-                <div id="no2"></div>
-                <div id="o3"></div>
-                <div id="so2"></div>
-                <div id="pm2_5"></div>
-                <div id="pm10"></div>
-                <div id="nh3"></div>
+                <div id="aqi">
+
+                </div>
+                <div id="co">
+                    <label id="colabel" for="cometer"></label>
+                    <meter id="cometer" value="0" min="0" max="15400" low="9400" high="12400"></meter>
+                </div>
+                <div id="no">
+                    <label id="nolabel" for="nometer"></label>
+                    <meter id="nometer" value="0" min="0" max="100" low="30" high="70"></meter>
+                </div>
+                <div id="no2">
+                    <label id="no2label" for="no2meter"></label>
+                    <meter id="no2meter" value="0" min="0" max="200" low="70" high="150"></meter>
+                </div>
+                <div id="o3">
+                    <label id="o3label" for="o3meter"></label>
+                    <meter id="o3meter" value="0" min="0" max="180" low="100" high="140"></meter>
+                </div>
+                <div id="so2">
+                    <label id="so2label" for="so2meter"></label>
+                    <meter id="so2ometer" value="0" min="0" max="350" low="80" high="250"></meter>
+                </div>
+                <div id="pm2_5">
+                    <label id="pm2_5label" for="pm2_5meter"></label>
+                    <meter id="pm2_5meter" value="0" min="0" max="75" low="25" high="50"></meter>
+                </div>
+                <div id="pm10">
+                    <label id="pm10label" for="pm10"></label>
+                    <meter id="pm10meter" value="0" min="0" max="200" low="50" high="100"></meter>
+                </div>
+                <div id="nh3">
+                    <label id="nh3label" for="nh3"></label>
+                    <meter id="nh3meter" value="0" min="0" max="200" low="70" high="100"></meter>
+                </div>
             </div>
             <!-- Zrobic wykres temperatury na nastepne dni ze zdjeciami pogody -->
         </div>

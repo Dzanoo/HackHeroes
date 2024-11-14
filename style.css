@@ -137,3 +137,15 @@ body {
     width: 24px;
     height: auto;
 }
+
+meter::-webkit-meter-bar {
+    color: red;
+}
+
+meter::-webkit-meter-even-less-good-value{
+    color: green;
+}
+
+meter::-webkit-meter-optimum-value{
+    color: yellow;
+}
