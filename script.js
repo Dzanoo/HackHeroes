@@ -11,6 +11,7 @@ const humidityElement = document.getElementById('humidity');
 const pressureElement = document.getElementById('pressure');
 const windSpeedElement = document.getElementById('windSpeed');
 const descriptionElement = document.getElementById('description');
+
 const tempFeelsElement = document.getElementById('tempFeels');
 const rainElement = document.getElementById('rain');
 const snowElement = document.getElementById('snow');
@@ -37,6 +38,7 @@ function coords(location){
         })
         .catch(error => {
             alert("Can't find city");
+            console.log(error);
         });
 }
 function fetchWeather(location) {
@@ -46,7 +48,7 @@ function fetchWeather(location) {
         .then(data => {
             locationElement.textContent = `${data.name}, ${data.sys.country}`;
             descriptionElement.textContent = data.weather[0].description;
-            temperatureElement.textContent = Math.round(data.main.temp);
+            temperatureElement.textContent = `Temperature: ${Math.round(data.main.temp)}°C`;
             humidityElement.textContent = `Humidity: ${data.main.humidity}%`;
             pressureElement.textContent = `Pressure: ${data.main.pressure}hPa`;
             windSpeedElement.textContent = `Wind speed: ${data.wind.speed}m/s`;
@@ -64,7 +66,7 @@ function fetchWeather(location) {
         });
 }
 function fetchWeatherForecast(location) {
-    const url = `${apiUrlForecast}?q=${location}&appid=${apiKey}&units=metric&cnt=3`;
+    const url = `${apiUrlForecast}?q=${location}&appid=${apiKey}&units=metric&cnt=30`;
     fetch(url)
         .then(response => response.json())
         .then(data => {
@@ -82,20 +84,22 @@ function fetchAirPollution(location) {
             console.log(data);
         })
         .catch(error => {
-            alert("Can't find city");
             console.error('Error fetching pollution data:', error);
         });
 }
 function fetchWidget(location){
-    window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];
+    var div = document.getElementById('widgetGenerator');
+    document.getElementById('openweathermap-widget-11').textContent = '';
+    window.myWidgetParam = [];
     window.myWidgetParam.push({id: 11,cityid: location,appid: '49c0f56e7438b2b449e09780173bb6b8',units: 'metric',containerid: 'openweathermap-widget-11',  });
         (function() {
-            var script = document.createElement('script');
-            script.async = true;
-            script.charset = "utf-8";
-            script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
-            var s = document.getElementsByTagName('script')[1];
-            s.parentNode.insertBefore(script, s);
+            var s = document.createElement('script');
+            s.async = true;
+            s.charset = "utf-8";
+            s.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
+            console.log(s);
+            div.appendChild(s);
+            div.textContent = '';
         })();
 }
 
