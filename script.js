@@ -57,6 +57,7 @@ function fetchWeather(location) {
             let icon = data.weather[0].icon;
             let iconurl = "http://openweathermap.org/img/w/" + icon + ".png";
             iconElement.innerHTML = `<img src="${iconurl}" alt="Weather Icon">`;
+            hour(data.timezone);
 
 
             console.log(data);
@@ -97,7 +98,6 @@ function fetchWidget(location){
             s.async = true;
             s.charset = "utf-8";
             s.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
-            console.log(s);
             div.appendChild(s);
             div.textContent = '';
         })();
@@ -114,11 +114,22 @@ function whichDay(dayNumber) {
     return daysOfWeek[dayNumber];
 }
 
-const d = new Date();
-let day = d.getDay();
-let hr = d.getHours();
-let mi = d.getMinutes();
-document.getElementById('day').innerHTML = whichDay(day) + ", " + hr + ":" + mi;
+function hour(timeZone){
+    var date = new Date();
+    var data = date.toUTCString();
+    var day = whichDay(date.getDay());
+    var hours = data.slice(17, 19);
+    hours = parseInt(hours) +  parseInt(timeZone/3600);
+    if(hours>=24){
+        hours -= 24;
+        day = whichDay(date.getDay() + 1);
+    }
+    if(hours == 0){
+        hours = "00";
+    }
+    var minutes = data.slice(20, 22);
+    document.getElementById('day').innerHTML = day + ", " + hours + ":" + minutes;
+}
 
 function clearInput() {
     locationInput.value = "";
