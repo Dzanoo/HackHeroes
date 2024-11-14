@@ -82,7 +82,15 @@ function fetchAirPollution(location) {
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
+            coElement.innerHTML=`CO: ${data.list[0].components.co}μg/m<sup>3</sup>`;
+            noElement.innerHTML=`NO: ${data.list[0].components.no}μg/m<sup>3</sup>`;
+            no2Element.innerHTML=`NO<sub>2</sub>: ${data.list[0].components.no2}μg/m<sup>3</sup>`;
+            o3Element.innerHTML=`O<sub>3</sub>: ${data.list[0].components.o3}μg/m<sup>3</sup>`;
+            so2Element.innerHTML=`SO<sub>2</sub>: ${data.list[0].components.so2}μg/m<sup>3</sup>`;
+            pm2_5Element.innerHTML=`PM<sub>2.5</sub>: ${data.list[0].components.pm2_5}μg/m<sup>3</sup>`;
+            pm10Element.innerHTML=`PM<sub>10</sub>: ${data.list[0].components.pm10}μg/m<sup>3</sup>`;
+            nh3Element.innerHTML=`NH<sub>3</sub>: ${data.list[0].components.nh3}μg/m<sup>3</sup>`;
+
         })
         .catch(error => {
             console.error('Error fetching pollution data:', error);
