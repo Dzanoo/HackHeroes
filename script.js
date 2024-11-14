@@ -48,7 +48,7 @@ function fetchWeather(location) {
         .then(data => {
             locationElement.textContent = `${data.name}, ${data.sys.country}`;
             descriptionElement.textContent = data.weather[0].description;
-            temperatureElement.textContent = `Temperature: ${Math.round(data.main.temp)}°C`;
+            temperatureElement.textContent = Math.round(data.main.temp);
             humidityElement.textContent = `Humidity: ${data.main.humidity}%`;
             pressureElement.textContent = `Pressure: ${data.main.pressure}hPa`;
             windSpeedElement.textContent = `Wind speed: ${data.wind.speed}m/s`;
