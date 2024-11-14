@@ -19,6 +19,15 @@ const sunRiseElement = document.getElementById('sunRise');
 const sunSetElement = document.getElementById('sunSet');
 const iconElement = document.getElementById('icon');
 
+const coElement = document.getElementById('co');
+const noElement = document.getElementById('no');
+const no2Element = document.getElementById('no2');
+const o3Element = document.getElementById('o3');
+const so2Element = document.getElementById('so2');
+const pm2_5Element = document.getElementById('pm2_5');
+const pm10Element = document.getElementById('pm10');
+const nh3Element = document.getElementById('nh3');
+
 searchButton.addEventListener('click', () => {
     const location = locationInput.value;
     if (location) {
