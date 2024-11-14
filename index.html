@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pogoda</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="all">
+        <div id="searchbar">
+            <input type="text" id="locationInput" placeholder="Search here...">
+            <button id="searchButton" onclick="showBox()">Search</button>
+        </div>
+        <div id="container">
+            <div class="loc">Current Location</div>
+            <div id="location"></div>
+            <div class="main">
+                <div class="image"></div>
+                <div class="temp">
+                    <div id="icon"></div>
+                    <span id="temperature"></span><span id="degrees">°C</span>
+                    <div class="data">
+                        <div class="text">Weather</div>
+                        <div id="day"></div>
+                        <div id="description"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="different">
+                <div class="icon-text">
+                    <img src="humidity-icon.png" alt="Rain Icon">
+                    <div id="humidity"></div>
+                </div>
+                <div class="icon-text">
+                    <img src="wind-icon.png" alt="Wind Icon">
+                    <div id="windSpeed"></div>
+                </div>
+                <div class="icon-text">
+                    <img src="pressure-icon.png" alt="Pressure Icon">
+                    <div id="pressure"></div>
+                </div>
+            </div>
+            <!-- Zrobic wykres temperatury na nastepne dni ze zdjeciami pogody -->
+        </div>
+
+    </div>
+
+    <!-- Widget z wykresami itp-->
+    <!-- <div id="openweathermap-widget-11"></div> -->
+
+    <script src="script.js"></script>
+    <script src='//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js'></script>
+</body>
+
+</html>
