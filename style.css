@@ -115,9 +115,15 @@
         flex-wrap: wrap;
         gap: 0.5rem;
     }
+    .icon-text {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
 
     .icon-text img {
         width: 20px;
+        height: auto;
     }
 
     .air_pollution {
