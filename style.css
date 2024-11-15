@@ -1,151 +1,182 @@
-body {
-    background: #6600FF;
-    background: radial-gradient(circle at 30% 40%, #00CC99 0%, transparent 60%),
-        radial-gradient(circle at 5% 10%, #6600FF 0%, transparent 60%),
-        radial-gradient(circle at 95% 80%, #00CC99 0%, transparent 60%),
-        radial-gradient(circle at 65% 30%, #00CC99 0%, transparent 60%),
-        radial-gradient(circle at 40% 5%, #6600FF 0%, transparent 60%),
-        radial-gradient(circle at 25% 75%, #00CC99 0%, transparent 60%);
-    background-blend-mode: screen;
-    background-size: cover;
-    height: 100vh;
-    margin: 0;
-    background-size: 100%;
-    display: flex;
-    justify-content: center;
-    font-family: sans-serif;
-}
+    body {
+        background: radial-gradient(circle at 30% 40%, #00CC99 0%, transparent 60%),
+            radial-gradient(circle at 5% 10%, #6600FF 0%, transparent 60%),
+            radial-gradient(circle at 95% 80%, #00CC99 0%, transparent 60%),
+            radial-gradient(circle at 65% 30%, #00CC99 0%, transparent 60%),
+            radial-gradient(circle at 40% 5%, #6600FF 0%, transparent 60%),
+            radial-gradient(circle at 25% 75%, #00CC99 0%, transparent 60%);
+        background-blend-mode: screen;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        min-height: 100vh;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: sans-serif;
+    }
+    #searchbar {
+        width: 90%;
+        max-width: 600px;
+        background-color: rgba(240, 248, 255, 0.5);
+        border: 2px solid aliceblue;
+        border-radius: 20px;
+        padding: 0.8rem;
+        margin-top: 2rem;
+        display: flex;
+        justify-content: space-between;
+    }
 
-#searchbar {
-    width: 14vw;
-    height: 2vw;
-    background-color: rgb(240, 248, 255, 0.5);
-    border: 2px solid aliceblue;
-    border-radius: 20px;
-    padding: 1vw;
-    margin-top: 110%;
-    display: block;
-    display: flex;
-    justify-content: space-around;
-}
+    #locationInput, #searchButton {
+        flex: 1;
+        background-color: #fff;
+        border: none;
+        padding: 0.5rem;
+        border-radius: 5px;
+    }
 
-#locationInput {
-    background-color: #fff;
-    border: 0px;
-    padding: 0.6vw;
-    border-radius: 5px;
-    opacity: 1;
-}
+    #searchButton {
+        margin-left: 0.5rem;
+    }
 
-#searchButton {
-    background-color: #fff;
-    border: 0px;
-    padding: 0.6vw;
-    border-radius: 5px;
-    margin-left: 0.6vw;
-    opacity: 1;
-}
+    #container {
+        width: 100%;
+        max-width: 600px;
+        background-color: rgba(240, 248, 255, 0.8);
+        border: 3px solid aliceblue;
+        border-radius: 20px;
+        padding: 1rem;
+        margin-top: 1rem;
+        display: none;
+    }
 
-#container {
-    width: 40vw;
-    height: 25vw;
-    background-color: rgb(240, 248, 255, 0.8);
-    border: 3px solid aliceblue;
-    border-radius: 20px;
-    padding: 2vw;
-    margin-top: 3%;
-    display: none;
-}
+    .main {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
 
-.main {
-    width: 70%;
-    float: left;
-}
+    .loc {
+        color: gray;
+        font-size: 1rem;
+        width: 100%;
+        text-align: center;
+    }
 
-.loc {
-    color: gray;
-    font-size: 1.2vw;
-    width: 70%;
-}
+    .temp {
+        width: 100%;
+        background-color: rgb(0, 195, 255);
+        border-radius: 12px;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        justify-content: space-between;
+    }
 
-.city {
-    font-size: 2vw;
-    width: 70%;
-    font-weight: bold;
-}
+    #icon {
+        flex: 1;
+        max-width: 60px;
+        overflow: hidden;
+    }
+    #icon img {
+        width: 100%;
+        height: auto;
+    }
 
-.temp {
-    width: 24vw;
-    height: 6vw;
-    background-color: rgb(0, 195, 255);
-    border-radius: 12px;
-    margin-top: 1vw;
-    padding: 2vw;
+    #temperature {
+        font-size: 2rem;
+        color: #fff;
+    }
 
-}
+    #degrees {
+        font-size: 1.2rem;
+        color: #fff;
+    }
 
-#icon {
-    width: 15%;
-    float: left;
-    transform: scale(1.7);
-    margin-left: 1%;
-    margin-top: 7%;
-}
+    .data {
+        text-align: right;
+        flex: 1;
+        font-size: 0.8rem;
+    }
 
-#temperature {
-    width: 40%;
-    font-size: 5vw;
-    color: #fff;
-}
+    .text {
+        color: rgb(93, 99, 105);
+        font-size: 1rem;
+    }
 
-#degrees {
-    font-size: 2.5vw;
-    color: #fff;
-}
+    .different {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
 
-.data {
-    font-size: 1vw;
-    text-align: right;
-    width: 40%;
-    float: right;
-}
+    .icon-text img {
+        width: 20px;
+    }
 
-.text {
-    color: rgb(93, 99, 105);
-    font-size: 1.5vw;
-}
+    .air_pollution {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-top: 7%;
+        border: 1px solid #fff;
+        padding: 1rem;
+        border-radius: 2rem;
+    }
 
-#day {
-    color: aliceblue;
-}
+    .air_pollution div {
+        flex: 1 1 calc(50% - 0.5rem);
+        text-align: center;
+    }
+    @media screen and (min-width: 768px) {
+        body {
+            padding: 2rem;
+        }
 
-.different {
-    margin-top: 1.5vw;
-    float: right;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
+        #searchbar {
+            width: 50%;
+            max-width: none;
+        }
 
-.icon-text {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
+        #container {
+            padding: 2rem;
+            margin-top: 2rem;
+        }
 
-.icon-text img {
-    width: 24px;
-    height: auto;
-}
+        .loc {
+            font-size: 1.2rem;
+        }
 
-meter::-webkit-meter-bar {
-    color: red;
-}
+        #temperature {
+            font-size: 3rem;
+        }
 
-meter::-webkit-meter-even-less-good-value{
-    color: green;
-}
+        #degrees {
+            font-size: 1.5rem;
+        }
 
-meter::-webkit-meter-optimum-value{
-    color: yellow;
-}
+        .data {
+            font-size: 1rem;
+        }
+    }
+    @media (max-width: 768px) {
+        body {
+            background-size: 200%;
+        }
+    }
+
+    @media (max-width: 480px) {
+        body {
+            background-size: 300%;
+        }
+        .searchbar{
+            width: 100%;
+        }
+    }

@@ -117,7 +117,7 @@ function fetchAirPollution(location) {
             pm10.value=data.list[0].components.pm10;
             nh3.value=data.list[0].components.nh3;
             console.log(data);
-            aqiElement.innerHTML=`Air quailty today is ${data.list[0].main.aqi}.`;
+            aqiElement.innerHTML=`Air quailty today is ${data.list[0].main.aqi}`;
         })
         .catch(error => {
             console.error('Error fetching pollution data:', error);
@@ -128,14 +128,14 @@ function fetchWidget(location){
     document.getElementById('openweathermap-widget-11').textContent = '';
     window.myWidgetParam = [];
     window.myWidgetParam.push({id: 11,cityid: location,appid: '49c0f56e7438b2b449e09780173bb6b8',units: 'metric',containerid: 'openweathermap-widget-11',  });
-        (function() {
+        /*function() {
             var s = document.createElement('script');
             s.async = true;
             s.charset = "utf-8";
             s.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
             div.appendChild(s);
             div.textContent = '';
-        })();
+        })();*/
 }
 
 
